@@ -1,7 +1,22 @@
 from flask import Flask
+import requests
 
-app = Flask('flask')
+# place API key from Spoonacular
+API_KEY = '7fb1b4b862af49789a3a081ddeed0187'
+
+app = Flask('Flask')
 
 @app.route("/")
-def hello():
-    return "Hello, World!"
+def rec():
+    # Endpoint URL for the Spoonacular API
+    endpoint = 'https://api.spoonacular.com/recipes/findByNutrients'
+    # Parameters for the recipe search
+    params = {
+        'minCarbs': 10,
+        'maxCarbs': 100,
+        'minProtein': 10,
+        'maxProtein': 100,
+        'apiKey': API_KEY
+    }
+    response = requests.get(endpoint, params=params)
+    return response.json()
