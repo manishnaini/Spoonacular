@@ -37,4 +37,6 @@ def rec():
             recipe_details += f"Calories per Serving: {recipe['calories']}\n"
             recipe_details += f"Carbs per Serving: {recipe['carbs']}g\n"
             recipe_details += f"Protein per Serving: {recipe['protein']}g\n"
+            recipe_details += f"Fat per Serving: {recipe['fat']}g\n"
+            recipe_details += "\n------\n"
         return recipe_details
