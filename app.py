@@ -35,4 +35,6 @@ def rec():
         for recipe in recipes:
             recipe_details += f"Recipe Name: {recipe['title']}\n"
             recipe_details += f"Calories per Serving: {recipe['calories']}\n"
+            recipe_details += f"Carbs per Serving: {recipe['carbs']}g\n"
+            recipe_details += f"Protein per Serving: {recipe['protein']}g\n"
         return recipe_details
