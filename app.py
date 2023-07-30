@@ -26,5 +26,13 @@ def rec():
         'offset': 0,
         'apiKey': API_KEY
     }
+    # Make the API request
     response = requests.get(endpoint, params=params)
-    return response.json()
+
+    if response.status_code == 200:
+        recipes = response.json()
+        recipe_details = ""
+        for recipe in recipes:
+            recipe_details += f"Recipe Name: {recipe['title']}\n"
+            recipe_details += f"Calories per Serving: {recipe['calories']}\n"
+        return recipe_details
