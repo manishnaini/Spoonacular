@@ -38,7 +38,7 @@ def rec():
             recipe_details += f"Carbs per Serving: {recipe['carbs']}g\n"
             recipe_details += f"Protein per Serving: {recipe['protein']}g\n"
             recipe_details += f"Fat per Serving: {recipe['fat']}g\n"
-            recipe_details += "\n------\n"
+            recipe_details += "------\n"
         return recipe_details
     else:
         return f"Failed to fetch recipes. Status code: {response.status_code}\n{response.json()}"
