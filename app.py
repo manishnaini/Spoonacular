@@ -18,6 +18,8 @@ def rec():
         'maxProtein': 100,
         'minCalories': 50,
         'maxCalories': 800,
+        'minFat': 1,
+        'maxFat': 100,
         'apiKey': API_KEY
     }
     response = requests.get(endpoint, params=params)
