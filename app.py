@@ -40,5 +40,7 @@ def rec():
             recipe_details += f"Fat per Serving: {recipe['fat']}g\n"
             recipe_details += "\n------\n"
         return recipe_details
+    else:
+        return f"Failed to fetch recipes. Status code: {response.status_code}\n{response.json()}"
 if _name_ == "_main_":
     app.run()
