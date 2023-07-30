@@ -40,3 +40,5 @@ def rec():
             recipe_details += f"Fat per Serving: {recipe['fat']}g\n"
             recipe_details += "\n------\n"
         return recipe_details
+if _name_ == "_main_":
+    app.run()
