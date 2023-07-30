@@ -22,6 +22,7 @@ def rec():
         'maxFat': 100,
         'random': False,
         'number': 10,
+        'limitLicense': True,
         'offset': 0,
         'apiKey': API_KEY
     }
