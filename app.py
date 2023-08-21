@@ -45,3 +45,5 @@ def rec():
         return recipe_details
     else:
         return f"Failed to fetch recipes. Status code: {response.status_code}\n{response.json()}"
+if __name__ == "__main__":
+    app.run()
