@@ -13,23 +13,26 @@ def rec():
         min_carbs = request.form.get('min_carbs')
         max_carbs = request.form.get('max_carbs')
         min_protein = request.form.get('min_protein')
+        max_protein = request.form.get('max_protein')
+        min_calories = request.form.get('min_calories')
+        max_calories = request.form.get('max_calories')
         # Endpoint URL for the Spoonacular API
         endpoint = 'https://api.spoonacular.com/recipes/findByNutrients'
         # Parameters for the recipe search
         params = {
-        'minCarbs': min_carb,
-        'maxCarbs': max_carbs,
-        'minProtein': min_protein,
-        'maxProtein': 100,
-        'minCalories': 50,
-        'maxCalories': 800,
-        'minFat': 1,
-        'maxFat': 100,
-        'random': False,
-        'number': 10,
-        'limitLicense': True,
-        'offset': 0,
-        'apiKey': API_KEY
+            'minCarbs': min_carbs,
+            'maxCarbs': max_carbs,
+            'minProtein': min_protein,
+            'maxProtein': 100,
+            'minCalories': 50,
+            'maxCalories': 800,
+            'minFat': 1,
+            'maxFat': 100,
+            'random': False,
+            'number': 10,
+            'limitLicense': True,
+            'offset': 0,
+            'apiKey': API_KEY
     }
         # Make the API request
         response = requests.get(endpoint, params=params)
