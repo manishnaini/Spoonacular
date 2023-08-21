@@ -36,15 +36,18 @@ def rec():
 
     if response.status_code == 200:
         recipes = response.json()
-        recipe_details = ""
+        recipe_details = []
         for recipe in recipes:
-            recipe_details += f"Recipe Name: {recipe['title']}\n"
-            recipe_details += f"Calories per Serving: {recipe['calories']}\n"
-            recipe_details += f"Carbs per Serving: {recipe['carbs']}g\n"
-            recipe_details += f"Protein per Serving: {recipe['protein']}g\n"
-            recipe_details += f"Fat per Serving: {recipe['fat']}g\n"
-            recipe_details += "------\n"
-        return recipe_details
+            recipe_info = {
+                    'name': recipe['title'],
+                    'calories': recipe['calories'],
+                    'carbs': recipe['carbs'],
+                    'protein': recipe['protein'],
+                    'fat': recipe['fat']
+            }
+            recipe_details.append(recipe_info)
+
+        return render_template('index.html', recipe_details=recipe_details)
     else:
         return f"Failed to fetch recipes. Status code: {response.status_code}\n{response.json()}"
 if __name__ == "__main__":
