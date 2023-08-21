@@ -9,13 +9,17 @@ app = Flask(__name__)
 @app.route("/", methods=['GET','POST'])
 
 def rec():
+    if request.method == 'POST':
+        min_carbs = request.form.get('min_carbs')
+        max_carbs = request.form.get('max_carbs')
+        min_protein = request.form.get('min_protein')
     # Endpoint URL for the Spoonacular API
     endpoint = 'https://api.spoonacular.com/recipes/findByNutrients'
     # Parameters for the recipe search
     params = {
-        'minCarbs': 10,
-        'maxCarbs': 100,
-        'minProtein': 10,
+        'minCarbs': min_carb,
+        'maxCarbs': max_carbs,
+        'minProtein': min_protein,
         'maxProtein': 100,
         'minCalories': 50,
         'maxCalories': 800,
