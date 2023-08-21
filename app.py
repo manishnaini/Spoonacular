@@ -16,6 +16,8 @@ def rec():
         max_protein = request.form.get('max_protein')
         min_calories = request.form.get('min_calories')
         max_calories = request.form.get('max_calories')
+        min_fat = request.form.get('min_fat')
+        max_fat = request.form.get('max_fat')
         # Endpoint URL for the Spoonacular API
         endpoint = 'https://api.spoonacular.com/recipes/findByNutrients'
         # Parameters for the recipe search
