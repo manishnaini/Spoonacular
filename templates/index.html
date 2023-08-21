@@ -34,6 +34,18 @@
     </from>
 
     <!-- Display Recipe Details if Available -->
+    {% if recipe_details %}
     <h2>Recipe Details:</h2>
+    <pre>
+    {% for recipe in recipe_details %}
+    Recipe Name: {{ recipe['name'] }}
+    Calories per Serving: {{ recipe['calories'] }}
+    Carbs per Serving: {{ recipe['carbs'] }}g
+    Protein per Serving: {{ recipe['protein'] }}g
+    Fat per Serving: {{ recipe['fat'] }}g
+    ---------------------------------
+    {% endfor %}
+    </pre>
+    {% endif %}
 </body>
 </html>
