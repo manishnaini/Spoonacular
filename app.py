@@ -13,10 +13,10 @@ def rec():
         min_carbs = request.form.get('min_carbs')
         max_carbs = request.form.get('max_carbs')
         min_protein = request.form.get('min_protein')
-    # Endpoint URL for the Spoonacular API
-    endpoint = 'https://api.spoonacular.com/recipes/findByNutrients'
-    # Parameters for the recipe search
-    params = {
+        # Endpoint URL for the Spoonacular API
+        endpoint = 'https://api.spoonacular.com/recipes/findByNutrients'
+        # Parameters for the recipe search
+        params = {
         'minCarbs': min_carb,
         'maxCarbs': max_carbs,
         'minProtein': min_protein,
@@ -31,25 +31,27 @@ def rec():
         'offset': 0,
         'apiKey': API_KEY
     }
-    # Make the API request
-    response = requests.get(endpoint, params=params)
+        # Make the API request
+        response = requests.get(endpoint, params=params)
 
-    if response.status_code == 200:
-        recipes = response.json()
-        recipe_details = []
-        for recipe in recipes:
-            recipe_info = {
+        if response.status_code == 200:
+            recipes = response.json()
+            recipe_details = []
+            for recipe in recipes:
+                recipe_info = {
                     'name': recipe['title'],
                     'calories': recipe['calories'],
                     'carbs': recipe['carbs'],
                     'protein': recipe['protein'],
                     'fat': recipe['fat']
-            }
-            recipe_details.append(recipe_info)
+                }
+                recipe_details.append(recipe_info)
 
-        return render_template('index.html', recipe_details=recipe_details)
+            return render_template('index.html', recipe_details=recipe_details)
+        else:
+            error_message = f"Failed to fetch recipes. Status code: {response.status_code}\n{response.json()}"
+            return render_template('index.html', error_message=error_message)
     else:
-        error_message = f"Failed to fetch recipes. Status code: {response.status_code}\n{response.json()}"
-        return render_template('index.html', error_message=error_message)
+        return render_template('index.html')
 if __name__ == "__main__":
     app.run()
