@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests
 
 # place API key from Spoonacular
@@ -6,7 +6,7 @@ API_KEY = '7fb1b4b862af49789a3a081ddeed0187'
 
 app = Flask('Flask')
 
-@app.route("/")
+@app.route("/", methods=['GET','POST'])
 def rec():
     # Endpoint URL for the Spoonacular API
     endpoint = 'https://api.spoonacular.com/recipes/findByNutrients'
