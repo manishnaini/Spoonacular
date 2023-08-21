@@ -49,6 +49,7 @@ def rec():
 
         return render_template('index.html', recipe_details=recipe_details)
     else:
-        return f"Failed to fetch recipes. Status code: {response.status_code}\n{response.json()}"
+        error_message = f"Failed to fetch recipes. Status code: {response.status_code}\n{response.json()}"
+        return render_template('index.html', error_message=error_message)
 if __name__ == "__main__":
     app.run()
