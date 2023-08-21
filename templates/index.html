@@ -8,5 +8,13 @@
 <body>
     <h1>All Your Food. One Place.</h1>
     <h2>Search Recipes by Nutrients....</h2>
+    <from action="/" name="my_form" method="POST">
+        <label for="min_carbs">Min Carbs:</label>
+        <select id="min_carbs" name="min_carbs">
+        {% for value in range(0, 101) %}
+        <option value="{{ value }}">{{ value }}</option>
+        {% endfor %}
+        </select>
+    </from>
 </body>
 </html>
