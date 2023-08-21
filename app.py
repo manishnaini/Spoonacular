@@ -9,6 +9,7 @@ app = Flask('Flask')
 @app.route("/", methods=['GET','POST'])
 def home():
     return render_template('index.html')
+@app.route("/RecipesByNutrients")
 def rec():
     # Endpoint URL for the Spoonacular API
     endpoint = 'https://api.spoonacular.com/recipes/findByNutrients'
