@@ -47,5 +47,10 @@
     {% endfor %}
     </pre>
     {% endif %}
+    <!-- Display Error Message if Applicable -->
+    {% if error_message %}
+    <h2>Error:</h2>
+    <p>{{ error_message }}</p>
+    {% endif %}
 </body>
 </html>
