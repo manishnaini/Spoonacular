@@ -8,15 +8,15 @@
 <body>
     <h1>All Your Food. One Place.</h1>
     <h2>Search Recipes by Nutrients....</h2>
-    <from action="/" name="my_form" method="POST">
-
+    <form action="/" name="my_form" method="POST">
+        
         <label for="min_carbs">Min Carbs:</label>
         <select id="min_carbs" name="min_carbs">
         {% for value in range(0, 101) %}
         <option value="{{ value }}">{{ value }}</option>
         {% endfor %}
         </select>
-
+    
         <label for="max_carbs">Max Carbs:</label>
         <select id="max_carbs" name="max_carbs">
         {% for value in range(0, 101) %}
@@ -31,15 +31,13 @@
         {% endfor %}
         </select>
 
-         <!-- Max Protein Selector -->
-         <label for="max_protein">Max Protein:</label>
-         <select id="max_protein" name="max_protein">
-         {% for value in range(0, 101) %}
-         <option value="{{ value }}">{{ value }}</option>
-         {% endfor %}
-         </select>
- 
-        <!-- Min Calories Selector -->
+        <label for="max_protein">Max Protein:</label>
+        <select id="max_protein" name="max_protein">
+        {% for value in range(0, 101) %}
+        <option value="{{ value }}">{{ value }}</option>
+        {% endfor %}
+        </select>
+
         <label for="min_calories">Min Calories:</label>
         <select id="min_calories" name="min_calories">
         {% for value in range(0, 101) %}
@@ -47,7 +45,6 @@
         {% endfor %}
         </select>
 
-        <!-- Max Calories Selector -->
         <label for="max_calories">Max Calories:</label>
         <select id="max_calories" name="max_calories">
         {% for value in range(0, 1000) %}
@@ -55,7 +52,6 @@
         {% endfor %}
         </select>
 
-        <!-- Min Fat Selector -->
         <label for="min_fat">Min Fat:</label>
         <select id="min_fat" name="min_fat">
         {% for value in range(0, 101) %}
@@ -63,24 +59,22 @@
         {% endfor %}
         </select>
 
-          <!-- Max Fat Selector -->
-          <label for="max_fat">Max Fat:</label>
-          <select id="max_fat" name="max_fat">
-          {% for value in range(0, 101) %}
-          <option value="{{ value }}">{{ value }}</option>
-          {% endfor %}
-          </select>
-          
-        <button type="submit">Search</button>
-    </from>
+        <label for="max_fat">Max Fat:</label>
+        <select id="max_fat" name="max_fat">
+        {% for value in range(0, 101) %}
+        <option value="{{ value }}">{{ value }}</option>
+        {% endfor %}
+        </select>
 
-    <!-- Display Recipe Details if Available -->
+        <button type="submit">Search</button>
+    </form>
+
     {% if recipe_details %}
     <h2>Recipe Details:</h2>
     <pre>
     {% for recipe in recipe_details %}
     Recipe Name: {{ recipe['name'] }}
-    // Calories per Serving: {{ recipe['calories'] }}
+    Calories per Serving: {{ recipe['calories'] }}
     Carbs per Serving: {{ recipe['carbs'] }}g
     Protein per Serving: {{ recipe['protein'] }}g
     Fat per Serving: {{ recipe['fat'] }}g
@@ -88,8 +82,7 @@
     {% endfor %}
     </pre>
     {% endif %}
-    
-    <!-- Display Error Message if Applicable -->
+
     {% if error_message %}
     <h2>Error:</h2>
     <p>{{ error_message }}</p>
