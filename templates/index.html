@@ -23,6 +23,13 @@
         {% endfor %}
         </select>
 
+        <label for="min_protein">Min Protein:</label>
+        <select id="min_protein" name="min_protein">
+        {% for value in range(0, 101) %}
+        <option value="{{ value }}">{{ value }}</option>
+        {% endfor %}
+        </select>
+
     </from>
 </body>
 </html>
