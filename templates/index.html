@@ -15,6 +15,14 @@
         <option value="{{ value }}">{{ value }}</option>
         {% endfor %}
         </select>
+
+        <label for="max_carbs">Max Carbs:</label>
+        <select id="max_carbs" name="max_carbs">
+        {% for value in range(0, 101) %}
+        <option value="{{ value }}">{{ value }}</option>
+        {% endfor %}
+        </select>
+
     </from>
 </body>
 </html>
