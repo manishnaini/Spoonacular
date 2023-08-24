@@ -8,6 +8,8 @@ app = Flask(__name__)
 
 def rec():
     if request.method == 'POST':
+          # Get selected options from the form
+        diet = request.form.get('diet')
         min_carbs = request.form.get('min_carbs')
         max_carbs = request.form.get('max_carbs')
         min_protein = request.form.get('min_protein')
