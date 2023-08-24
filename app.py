@@ -10,6 +10,7 @@ def rec():
     if request.method == 'POST':
           # Get selected options from the form
         diet = request.form.get('diet')
+        ready_time = request.form.get('ready_time')
         min_carbs = request.form.get('min_carbs')
         max_carbs = request.form.get('max_carbs')
         min_protein = request.form.get('min_protein')
